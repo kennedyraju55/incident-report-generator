@@ -23,29 +23,29 @@ def main():
     # Generate an incident report from raw logs.
     print("📝 Example: generate_report()")
     result = generate_report(
-        logs="sample data",
-        incident_type="Database server became unresponsive at 14:30 UTC"
+        logs="2024-01-15 10:30:00 ERROR Connection failed\n2024-01-15 10:31:00 INFO Recovered",
+        incident_type="outage"
     )
     print(f"   Result: {result}")
     print()
     # Extract a timeline from incident logs.
     print("📝 Example: generate_timeline()")
     result = generate_timeline(
-        logs="sample data"
+        logs="2024-01-15 10:30:00 ERROR Connection failed\n2024-01-15 10:31:00 INFO Recovered"
     )
     print(f"   Result: {result}")
     print()
     # Parse logs into structured timeline entries.
     print("📝 Example: build_timeline()")
     result = build_timeline(
-        logs="sample data"
+        logs="2024-01-15 10:30:00 ERROR Connection failed\n2024-01-15 10:31:00 INFO Recovered"
     )
     print(f"   Result: {result}")
     print()
     # Calculate impact assessment from incident data.
     print("📝 Example: calculate_impact()")
     result = calculate_impact(
-        logs="sample data"
+        logs="2024-01-15 10:30:00 ERROR Connection failed\n2024-01-15 10:31:00 INFO Recovered"
     )
     print(f"   Result: {result}")
     print()
