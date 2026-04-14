@@ -1,71 +1,100 @@
-# 📋 Incident Report Generator
+# 🚨 incident-report-generator
 
-Generate comprehensive incident reports automatically with AI analysis.
+Generate professional incident reports automatically — keep sensitive details private
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Ollama](https://img.shields.io/badge/Ollama-Compatible-green.svg)](https://ollama.com)
-[![Gemma 3](https://img.shields.io/badge/Gemma-3-orange.svg)](https://ollama.com)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Privacy First](https://img.shields.io/badge/Privacy-First-red.svg)](#why-local)
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-green)](https://ollama.com)
+[![Gemma 3](https://img.shields.io/badge/Gemma%203-Language%20Model-orange)](https://ollama.com/library/gemma2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](./LICENSE)
+[![Privacy First](https://img.shields.io/badge/Privacy-First-darkgreen)](#why-local)
 
-## What It Does
+## 🎯 What it does
 
-- **Auto-generates incident reports** from logs and metrics
-- **Root cause analysis** powered by Gemma 3 intelligence
-- **Timeline reconstruction** from unstructured incident data
-- **Recommendations and remediation steps** for future prevention
+- Create structured incident reports from incident details and system logs
+- Generates timeline, root cause analysis, impact assessment, remediation steps
+- Supports multiple incident types: outages, security, performance, data loss
+- All processing stays local — sensitive incident data never leaves your infrastructure
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- **Python 3.8+** — Report generation engine
-- **Gemma 3** (via Ollama) — Incident analysis and synthesis
-- **Jinja2** — Report template rendering
-- **Markdown/PDF export** — Multiple output formats
+- Streamlit (Web UI)
+- FastAPI (Backend API)
+- Ollama (Local LLM inference)
+- Gemma 3 (Language model)
+- Python 3.8+
 
-## Quick Start
+## ⚡ Quick Start
 
-`ash
-# Clone the repository
-git clone https://github.com/kennedyraju55/incident-report-generator.git
-cd incident-report-generator
+1. **Clone the repository**
+   \\\ash
+   git clone https://github.com/kennedyraju55/incident-report-generator.git
+   cd incident-report-generator
+   \\\
 
-# Install dependencies
-pip install -r requirements.txt
+2. **Install dependencies**
+   \\\ash
+   pip install -r requirements.txt
+   \\\
 
-# Pull Gemma 3 model locally
-ollama pull gemma3:4b
+3. **Download and start Ollama**
+   - Download from [ollama.com](https://ollama.com)
+   - Start Ollama service:
+   \\\ash
+   ollama serve
+   \\\
+   - In another terminal, pull Gemma 3:
+   \\\ash
+   ollama pull gemma2
+   \\\
 
-# Generate an incident report
-python generator.py --logs incident.log --metrics metrics.json
-`
+4. **Run the application**
+   \\\ash
+   streamlit run app.py
+   \\\
 
-## Architecture
+Access the app at: http://localhost:8501
 
-`
-incident logs + metrics
-    ↓
-[Gemma 3 LLM Analysis] ← offline, local
-    ↓
-timeline + root cause + recommendations
-    ↓
-Markdown/PDF report
-`
+## 🏗️ Architecture
 
-## Why Local?
+\\\
+User uploads incident details → Streamlit UI → FastAPI processes request → Ollama analyzes using Gemma 3 → Generates structured report → Download/share internally
+\\\
 
-- **Security**: Sensitive incident data remains on your infrastructure
-- **Privacy**: No exposure of internal systems or breach details to external services
-- **Control**: Full customization for your incident management workflow
-- **Confidentiality**: Protect proprietary information and customer data
+All processing happens locally on your machine. No data is sent to external services.
 
-## Contributing
+## 🔒 Why Local?
 
-Contributions welcome! Please fork, create a feature branch, and submit a pull request.
+Incident reports contain sensitive details: system architectures, vulnerability information, internal processes, and potentially confidential business decisions. Local processing ensures this critical information stays within your organization.
 
-## License
+## 📦 Environment Variables
 
-MIT License — see [LICENSE](LICENSE) for details.
+Create a \.env\ file in the project root:
+
+\\\nv
+OLLAMA_BASE_URL=http://localhost:11434
+MODEL_NAME=gemma2
+LOG_LEVEL=INFO
+\\\
+
+## 🤝 Contributing
+
+We love contributions! Here's how to help:
+
+1. Fork the repository
+2. Create a feature branch: \git checkout -b feature/your-feature\
+3. Make your changes and commit: \git commit -am 'Add feature'\
+4. Push to the branch: \git push origin feature/your-feature\
+5. Submit a Pull Request
+
+Please ensure:
+- Code follows PEP 8 style guidelines
+- Changes include appropriate comments
+- Updates to documentation are included
+
+## 📄 License
+
+This project is licensed under the MIT License — see [LICENSE](./LICENSE) for details.
 
 ---
 
-*Part of 114+ privacy-first AI tools by Nrk Raju*
+**Part of 114+ privacy-first AI tools by [Nrk Raju](https://github.com/kennedyraju55)**
